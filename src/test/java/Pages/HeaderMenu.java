@@ -22,6 +22,46 @@ public class HeaderMenu  extends ParentPage{
     @FindBy(css = "[page='CALENDAR']>button")
     public WebElement Calendar;
 
+    @FindBy(css = "[page='ATTENDANCE']>button")
+    public WebElement attendance;
+
+    @FindBy(css = "[page='ASSIGNMENT']>button")
+    public WebElement assignments;
+
+    @FindBy(css = "[page='GRADING']>button")
+    public WebElement grading;
+
+    @FindBy(xpath = "//div/span/span/button")
+    public WebElement hamburgerMenu;
+
+    @FindBy(xpath = "//user-message-bell/button")
+    public WebElement messages;
+
+    @FindBy(xpath = "//mat-toolbar//div/button")
+    public WebElement profile;
+
     @FindBy(xpath = "//student-toolbar-horizontal//button")
     public List<WebElement> buttonsHeader;
+
+
+    public WebElement getWebElement(String strElementName){
+
+        switch (strElementName)
+        {
+            case "courses" : return this.Courses;
+            case "calendar": return  this.Calendar;
+            case "attendance": return this.attendance;
+            case "assignments": return  this.assignments;
+            case "grading": return  this.grading;
+            case "hamburgerMenu": return  this.hamburgerMenu;
+            case "messages": return this.messages;
+            case "profile": return this.profile;
+
+
+
+        }
+
+        return null;
+    }
+
 }
