@@ -43,6 +43,11 @@ public class HeaderMenu  extends ParentPage{
     @FindBy(xpath = "//student-toolbar-horizontal//button")
     public List<WebElement> buttonsHeader;
 
+    @FindBy(xpath = "//div[@dir='ltr']//button//span[text()='Send Message']")
+    public WebElement sendMessage;
+
+    @FindBy(xpath = "//button//span[text()='Messaging']")
+    public WebElement messaging;
 
     public WebElement getWebElement(String strElementName){
 
@@ -56,7 +61,8 @@ public class HeaderMenu  extends ParentPage{
             case "hamburgerMenu": return  this.hamburgerMenu;
             case "messages": return this.messages;
             case "profile": return this.profile;
-
+            case "sendMessage": return this.sendMessage;
+            case "messaging": return this.messaging;
 
 
         }

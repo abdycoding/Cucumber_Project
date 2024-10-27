@@ -28,8 +28,7 @@ public class DialogContent extends ParentPage {
     public WebElement entryText;
 
 //Messaging menu
-    @FindBy(xpath = "//button//span[text()='Messaging']")
-    public WebElement messaging;
+
 
 //    public void verifyMessageContainsText(String value){
 //        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//hot-toast-container/div/div/div//*"),0));
@@ -51,10 +50,48 @@ public class DialogContent extends ParentPage {
 //        myClick(deleteDialogBtn);
 //    }
 
+
+    // send message part
+    @FindBy(xpath = "//ms-button[@tooltip]/button")
+    public WebElement addReceiver;
+
+    @FindBy(xpath = "(//div[@class='mdc-checkbox']/input)[2]")
+    public WebElement checkbox1st;
+
+    @FindBy(xpath = "(//ms-button[@color='accent']/button)[3]")
+    public WebElement add_Close;
+
+    @FindBy(xpath = "//mat-select/div")
+    public WebElement selectMessagetype;
+
+    @FindBy(xpath = "(//mat-pseudo-checkbox)[1]")
+    public WebElement emailCheckbox;
+
+    @FindBy(xpath = "//ms-text-field/input")
+    public WebElement subject;
+
+    @FindBy(xpath = "//body/p")
+    public WebElement textArea;
+
+
+    @FindBy(xpath = "(//ms-button[@color='accent']/button)[1]")
+    public WebElement sendButton;
+
+    @FindBy(xpath = "//mat-panel-description/div")
+    public WebElement successMessage;
+
     public WebElement getWebElement(String strElementName) {
 
         switch (strElementName.trim()) {
-            case "messaging": return this.messaging;
+            case "addReceiver": return this.addReceiver;
+            case "checkbox1st": return this.checkbox1st;
+            case "addClose": return this.add_Close;
+            case "selectMessagetype": return this.selectMessagetype;
+            case "email": return this.emailCheckbox;
+            case "subject": return this.subject;
+            case "textArea": return this.textArea;
+            case "sendButton": return this.sendButton;
+
         }
 
         return null;

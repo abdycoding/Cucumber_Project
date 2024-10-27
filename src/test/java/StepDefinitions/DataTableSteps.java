@@ -2,10 +2,12 @@ package StepDefinitions;
 
 import Pages.DialogContent;
 import Pages.HeaderMenu;
+import Utilities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
@@ -44,6 +46,32 @@ public class DataTableSteps {
             //kutuya yazıyı gönder
         }
 
+    }
+    @And("Hover over the Element in HeaderMenu")
+    public void hoverOvertheElementinHeaderMenu(DataTable dtButton){
+        List<String> buttons = dtButton.asList();
+
+        for (int i = 0; i < buttons.size(); i++) {
+            hd.hoverOver(hd.getWebElement(buttons.get(i)));
+        }
+
+    }
+    @And("Hover over the Element in DialogContent")
+    public void hoverOvertheElementinDialogContent(DataTable dtButton){
+        List<String> buttons = dtButton.asList();
+
+        for (int i = 0; i < buttons.size(); i++) {
+            hd.hoverOver(dc.getWebElement(buttons.get(i)));
+        }
+
+    }
+
+    @And("Click on the Escape Button")
+    public void escapeButton(){
+        Actions actions = new Actions(GWD.getDriver());
+
+        // Send the ESCAPE key action
+        actions.sendKeys(Keys.ESCAPE).perform();
     }
 
 //    @And("User delete the element from dialog")

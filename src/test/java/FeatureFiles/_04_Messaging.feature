@@ -10,4 +10,5 @@ Feature: Messaging Functionality
       And Click on the Element in HeaderMenu
       |hamburgerMenu|
 
-      And Hover over the messsaging menu
+      And Hover over the Element in HeaderMenu
+        | messaging |
