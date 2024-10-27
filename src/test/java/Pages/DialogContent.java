@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-public class DialogContent extends ParentPage{
+public class DialogContent extends ParentPage {
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
@@ -26,8 +26,11 @@ public class DialogContent extends ParentPage{
 
     @FindBy(xpath = "//*[@class='logo-text ng-star-inserted']")
     public WebElement entryText;
-//
-//
+
+//Messaging menu
+    @FindBy(xpath = "//button//span[text()='Messaging']")
+    public WebElement messaging;
+
 //    public void verifyMessageContainsText(String value){
 //        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//hot-toast-container/div/div/div//*"),0));
 //        Assert.assertTrue( this.messageBox.getAttribute("innerHTML").toLowerCase().contains(value.toLowerCase()));
@@ -48,11 +51,10 @@ public class DialogContent extends ParentPage{
 //        myClick(deleteDialogBtn);
 //    }
 
-    public WebElement getWebElement(String strElementName){
+    public WebElement getWebElement(String strElementName) {
 
-        switch (strElementName.trim())
-        {
-
+        switch (strElementName.trim()) {
+            case "messaging": return this.messaging;
         }
 
         return null;

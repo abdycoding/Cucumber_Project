@@ -4,6 +4,7 @@ import Pages.DialogContent;
 import Pages.HeaderMenu;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class DataTableSteps {
         for (int i = 0; i < linkler.size(); i++) {
             hd.myClick(hd.getWebElement(linkler.get(i)));
         }
-
+        Keys escape = Keys.ESCAPE;
     }
 
     @And("Click on the Element in DialogContent")
