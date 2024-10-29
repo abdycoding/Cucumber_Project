@@ -86,8 +86,19 @@ public class DialogContent extends ParentPage {
     @FindBy(xpath = "(//ms-confirm-button/button)[4]")
     public WebElement deleteIcon;
 
+    @FindBy(xpath = "(//ms-delete-button/button)[4]")
+    public WebElement deleteTrash;
+
+
     @FindBy(xpath = "(//mat-dialog-actions//button)[1]")
     public WebElement yesButton;
+
+    @FindBy(xpath = "(//ms-standard-button/button)[4]")
+    public WebElement recover;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement submit;
+
 
     public void verifyMessageContainsText(String value){
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//hot-toast-container/div/div/div//*"),0));
@@ -112,6 +123,11 @@ public class DialogContent extends ParentPage {
             case "placeholder": return this.placeholder;
             case "delete": return this.deleteIcon;
             case "yesButton": return this.yesButton;
+            case "recover": return this.recover;
+            case "trashIcon": return this.deleteTrash;
+            case "submit": return this.submit;
+
+
         }
 
         return null;
