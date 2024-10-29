@@ -55,7 +55,7 @@ public class DialogContent extends ParentPage {
     @FindBy(xpath = "//ms-button[@tooltip]/button")
     public WebElement addReceiver;
 
-    @FindBy(xpath = "(//div[@class='mdc-checkbox']/input)[2]")
+    @FindBy(xpath = "(//div[@class='mdc-checkbox']/input[@type='checkbox'])[1]")
     public WebElement checkbox1st;
 
     @FindBy(xpath = "(//ms-button[@color='accent']/button)[3]")
@@ -80,6 +80,24 @@ public class DialogContent extends ParentPage {
     @FindBy(xpath = "//mat-panel-description/div")
     public WebElement successMessage;
 
+    @FindBy(xpath = "//input[@placeholder='Name, Username or E-mail']")
+    public WebElement placeholder;
+
+    @FindBy(xpath = "(//ms-confirm-button/button)[4]")
+    public WebElement deleteIcon;
+
+    @FindBy(xpath = "(//mat-dialog-actions//button)[1]")
+    public WebElement yesButton;
+
+    public void verifyMessageContainsText(String value){
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//hot-toast-container/div/div/div//*"),0));
+        Assert.assertTrue( this.successMessage.getAttribute("innerHTML").toLowerCase().contains(value.toLowerCase()));
+
+        //sayfaya ESC tuşu gönderildi, açık mesaj kalmasın diye
+        new Actions(GWD.getDriver()).sendKeys(Keys.ESCAPE).build().perform();
+    }
+
+
     public WebElement getWebElement(String strElementName) {
 
         switch (strElementName.trim()) {
@@ -91,7 +109,9 @@ public class DialogContent extends ParentPage {
             case "subject": return this.subject;
             case "textArea": return this.textArea;
             case "sendButton": return this.sendButton;
-
+            case "placeholder": return this.placeholder;
+            case "delete": return this.deleteIcon;
+            case "yesButton": return this.yesButton;
         }
 
         return null;

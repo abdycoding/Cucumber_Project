@@ -32,7 +32,7 @@ public class DataTableSteps {
         List<String> butonlar = dtButonlar.asList();
 
         for (int i = 0; i < butonlar.size(); i++) {
-            hd.myClick(dc.getWebElement(butonlar.get(i)));
+            dc.myClick(dc.getWebElement(butonlar.get(i)));
         }
     }
 

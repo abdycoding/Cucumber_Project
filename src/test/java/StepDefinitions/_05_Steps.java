@@ -6,7 +6,7 @@ import io.cucumber.java.en.And;
 import org.testng.Assert;
 
 public class _05_Steps {
-    DialogContent dc=new DialogContent();
+    DialogContent dc = new DialogContent();
 
     @And("Enter into different window")
     public void enterIntoDifferentWindow() {
@@ -22,7 +22,7 @@ public class _05_Steps {
 
     @And("Success message should be displayed")
     public void successMessageShouldBeDisplayed() {
-        Assert.assertTrue(dc.successMessage.getText().contains("success"), "Error message");
-
+        dc.verifyMessageContainsText("success");
     }
+
 }

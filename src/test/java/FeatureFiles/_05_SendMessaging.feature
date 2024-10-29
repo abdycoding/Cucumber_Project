@@ -31,10 +31,10 @@ Feature: Messaging Functionality
     And Enter into different window
 
     And User sending the keys in Dialog
-      | textArea | Hello World|
+      | textArea | Hello World |
 
     And Return into main window
 
     And Click on the Element in DialogContent
-    |sendButton|
+      | sendButton |
     And Success message should be displayed
